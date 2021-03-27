@@ -29,14 +29,16 @@ class ParkingGarage():
         self.spots = spots
         self.tickets = tickets
 
+    #Method that allows user to park - removes spot from available spots and updates dictionary with new in-use ticket
     def takeTicket(self):
         if len(self.spots) == 0:
             print("Sorry, Garage is full")
         else:
-            New_Ticket = self.spots.pop(0)
-            self.tickets[New_Ticket] = ''
-            print(f"Here's your ticket, your ticket number is {New_Ticket}")
+            new_ticket = self.spots.pop(0)
+            self.tickets[new_ticket] = ''
+            print(f"Here's your ticket, your ticket number is {new_ticket}. Please keep this for when you leave!")
 
+    #Method that allows user to pay for their ticket, changing their ticket/dictionary from 'Unpaid' to 'Paid', then prints statement that they can proceed to leave
     def payForParking(self):
         ticket = int(input("Please input your ticket number: "))
         if ticket in self.tickets:
@@ -44,7 +46,8 @@ class ParkingGarage():
             self.tickets[ticket] = 'paid'
         else:
             print("Sorry we could not find ticket number. Please re-enter ticket number.")
-
+            
+    #Method that allows the user to 'leave' the garage, which will check if their ticket is paid (if not, will direct them to payForParking)
     def leaveGarage(self):
         Ticket = int(input("Please input ticket number: "))
         if self.tickets[Ticket] == 'paid':
