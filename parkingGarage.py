@@ -46,7 +46,7 @@ class ParkingGarage():
             self.tickets[ticket] = 'paid'
         else:
             print("Sorry we could not find ticket number. Please re-enter ticket number.")
-            
+
     #Method that allows the user to 'leave' the garage, which will check if their ticket is paid (if not, will direct them to payForParking)
     def leaveGarage(self):
         Ticket = int(input("Please input ticket number: "))
@@ -57,7 +57,7 @@ class ParkingGarage():
             #insert back into available tickets
             self.spots.insert(0, Ticket)
         elif self.tickets[Ticket] == '':
-            print("Sorry you havent paid yet. Please go back and pay")
+            print("Sorry you haven't paid yet. Please go back and pay")
         else:
             print("Sorry we could not find ticket number. Please re-enter ticket number.")
 

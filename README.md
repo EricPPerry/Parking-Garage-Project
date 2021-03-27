@@ -50,4 +50,10 @@ When the project is completed, commit the final changes, sync all pull requests,
 
 
 ###### List group responsiblities below:
-###### Provide name and approxamite line numbers where each person wrote their code
+Eric: Laid out rough outline of class/method flower, wrote 'battle plan'/ideas seen in the top comment/markdown area
+Adana 'drove'/wrote and Eric 'navigated'/helped: takeTicket method, payForParking method and most of leaveGarage method
+Eric 'drove'/wrote and Adana 'navigated'/helped: remainder of leaveGarage method, run_garage function and small bug fixed/syntax errors throughout 
+
+###### Provide name and approxamite line numbers where each person wrote their code:
+Eric: Lines 1-32 (notes/basic set up), 51-62 (shared), 66-79
+Adana: 33-50, 51-62 (shared)
