@@ -3,6 +3,7 @@
 #Creating a class called ParkingGarage, that retains a list of available spots and a dictionary containing outstanding tickets/tickets in use
 
 class ParkingGarage():
+
     """
     The ParkingGarage class will allow people (via input choice) to park, pay or leave with their car. 
     Attributes for the class:
@@ -27,6 +28,37 @@ class ParkingGarage():
     def __init__(self, spots, tickets):
         self.spots = spots
         self.tickets = tickets
+
+    def takeTicket(self):
+        if len(self.spots) == 0:
+            print("Sorry, Garage is full")
+        else:
+            New_Ticket = self.spots.pop(0)
+            self.tickets[New_Ticket] = ''
+            print(f"Here's your ticket, your ticket number is {New_Ticket}")
+
+    def payForParking(self):
+        ticket = int(input("Please input your ticket number"))
+        if ticket in self.tickets:
+            print("Thank you for paying. Please leave in 15 minutes")
+            self.tickets[ticket] = 'paid'
+        else:
+            print("Sorry we could not find ticket number. Please re-enter ticket number.")
+
+    def leaveGarage(self):
+        Ticket = int(input("Please input ticket nymber"))
+        if self.tickets[Ticket] == 'paid':
+            print("Goodbye. Thanks for using the garage")
+        elif self.tickets[Ticket] == '':
+            print("Sorry you havent paid yet. Please go back and pay")
+        else:
+            print("Sorry we could not find ticket number. Please re-enter ticket number.")
+            
+
+
+
+
+
 
 
 test_garage = ParkingGarage([1,2,3,4,5,6,7,8,9,10], {})
