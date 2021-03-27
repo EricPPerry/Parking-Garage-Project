@@ -38,7 +38,7 @@ class ParkingGarage():
             print(f"Here's your ticket, your ticket number is {New_Ticket}")
 
     def payForParking(self):
-        ticket = int(input("Please input your ticket number"))
+        ticket = int(input("Please input your ticket number: "))
         if ticket in self.tickets:
             print("Thank you for paying. Please leave in 15 minutes")
             self.tickets[ticket] = 'paid'
@@ -46,19 +46,33 @@ class ParkingGarage():
             print("Sorry we could not find ticket number. Please re-enter ticket number.")
 
     def leaveGarage(self):
-        Ticket = int(input("Please input ticket nymber"))
+        Ticket = int(input("Please input ticket number: "))
         if self.tickets[Ticket] == 'paid':
             print("Goodbye. Thanks for using the garage")
+            #delete 
+            del self.tickets[Ticket]
+            #insert back into available tickets
+            self.spots.insert(0, Ticket)
         elif self.tickets[Ticket] == '':
             print("Sorry you havent paid yet. Please go back and pay")
         else:
             print("Sorry we could not find ticket number. Please re-enter ticket number.")
-            
-
-
-
-
-
-
 
 test_garage = ParkingGarage([1,2,3,4,5,6,7,8,9,10], {})
+
+def run_garage(test_garage):
+    print("Welcome to the parking garage.")
+    while True:
+        response = (input("What would you like to do?(Park/Pay/Leave/Quit) ")).lower()
+        if response == 'park':
+            test_garage.takeTicket()
+        elif response == 'pay':
+            test_garage.payForParking()
+        elif response == 'leave':
+            test_garage.leaveGarage()
+        elif response == 'quit':
+            break
+        else:
+            print("Sorry, your input was not recognized - please enter valid input.")
+
+run_garage(test_garage)
